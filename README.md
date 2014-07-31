@@ -81,7 +81,9 @@ Files under `src/kapocs_dropin/` will be copied into `build/`, unchanged.
 
 ```js
 grunt.initConfig({
-  kapocs: {},
+  kapocs: {
+    foo: {}
+  },
 });
 ```
 
@@ -91,12 +93,14 @@ Here are all the options and their default values:
 ```js
 grunt.initConfig({
   kapocs: {
-    options: {
-      buildName: 'build/',
-      srcName: 'src/',
-      tmpName: 'tmp/',
-      cleanBuild: true,
-      cleanTmp: true
+    foo: {
+      options: {
+        buildName: 'build/',
+        srcName: 'src/',
+        tmpName: 'tmp/',
+        cleanBuild: true,
+        cleanTmp: true
+      }
     }
   },
 });
