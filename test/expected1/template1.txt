@@ -1,0 +1,6 @@
+asset1.txt: asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt
+asset2.txt: assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt
+dropin1.txt: {{dropin1.txt}}
+dropin2.txt: assets/{{dropin2.txt}}
+asset_template1.txt: asset_template1.4cfd644631fbe7a0d608cfbf8f087f94.txt
+asset_template2.txt: assets/asset_template2.f6cbfbefa15d962f1a1268e0d60a91b4.txt
