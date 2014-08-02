@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 				md5.update(fs.readFileSync(fullSrcName));
 				var md5Hash = md5.digest('hex');
 				
-				var dstName = srcName.replace(/(\.[^.]*)$/g, '.' + md5Hash + '$1');
+				var dstName = srcName.replace(/(\.[^.]*)$/, '.' + md5Hash + '$1');
 				
 				templateMap['{{' + path.basename(srcName) + '}}'] = path.basename(dstName);
 				
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 					process: function(content, srcpath) {
 						for (var i in templateMap) {
 							if (templateMap.hasOwnProperty(i)) {
-								content = content.replace(i, templateMap[i]);
+								content = content.replace(new RegExp(i, 'g'), templateMap[i]);
 							}
 						}
 						return content;
