@@ -89,10 +89,14 @@ module.exports = function(grunt) {
 			}
 		};
 		
-		grunt.config.set('clean', {
-			kapocs: cleanFiles
+		grunt.config.merge({
+			clean: {
+				kapocs: cleanFiles
+			}
 		});
-		grunt.config.set('copy', copyConfig);
+		grunt.config.merge({
+			copy: copyConfig
+		});
 		
 		grunt.task.run(['clean:kapocs', 'copy:kapocs_dropin', 'copy:kapocs_asset', 'copy:kapocs_template']);
 	});
