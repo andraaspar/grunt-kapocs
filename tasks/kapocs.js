@@ -61,9 +61,9 @@ module.exports = function(grunt) {
 		var copyConfig = {
 			kapocs_asset: {
 				files: [
-					{expand: true, cwd: options.tmpName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
-					{expand: true, cwd: options.srcName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
-					{expand: true, cwd: options.srcName + 'kapocs_asset/', src: ['**/*'], dest: options.buildName, rename: appendHash}
+					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
+					{expand: true, dot: true, cwd: options.srcName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
+					{expand: true, dot: true, cwd: options.srcName + 'kapocs_asset/', src: ['**/*'], dest: options.buildName, rename: appendHash}
 				]
 			},
 			kapocs_template: {
@@ -78,13 +78,13 @@ module.exports = function(grunt) {
 					}
 				},
 				files: [
-					{expand: true, cwd: options.tmpName + 'kapocs_template/', src: ['**/*'], dest: options.buildName},
-					{expand: true, cwd: options.srcName + 'kapocs_template/', src: ['**/*'], dest: options.buildName}
+					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_template/', src: ['**/*'], dest: options.buildName},
+					{expand: true, dot: true, cwd: options.srcName + 'kapocs_template/', src: ['**/*'], dest: options.buildName}
 				]
 			},
 			kapocs_dropin: {
 				files: [
-					{expand: true, cwd: options.srcName + 'kapocs_dropin/', src: ['**/*'], dest: options.buildName}
+					{expand: true, dot: true, cwd: options.srcName + 'kapocs_dropin/', src: ['**/*'], dest: options.buildName}
 				]
 			}
 		};
