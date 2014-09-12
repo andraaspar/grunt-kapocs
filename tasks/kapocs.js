@@ -62,6 +62,7 @@ module.exports = function(grunt) {
 			kapocs_asset: {
 				files: [
 					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
+					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_asset/', src: ['**/*'], dest: options.buildName, rename: appendHash},
 					{expand: true, dot: true, cwd: options.srcName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
 					{expand: true, dot: true, cwd: options.srcName + 'kapocs_asset/', src: ['**/*'], dest: options.buildName, rename: appendHash}
 				]
