@@ -84,6 +84,7 @@ module.exports = function(grunt) {
 			},
 			kapocs_dropin: {
 				files: [
+					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_dropin/', src: ['**/*'], dest: options.buildName},
 					{expand: true, dot: true, cwd: options.srcName + 'kapocs_dropin/', src: ['**/*'], dest: options.buildName}
 				]
 			}
