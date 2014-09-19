@@ -6,3 +6,5 @@ tmp
 /tmp2
 /.project
 /.settings
+/bower_components
+/lib

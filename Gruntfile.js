@@ -10,56 +10,55 @@
 
 module.exports = function(grunt) {
 
-	// Project configuration.
 	grunt.initConfig({
-		jshint: {
-			all: [
-				'Gruntfile.js',
-				'tasks/*.js',
-				'<%= nodeunit.tests %>'
-			],
-			options: {
-				jshintrc: '.jshintrc'
-			}
-		},
-
-		// Before generating any new files, remove any previously-created files.
-		clean: {
-			tests: ['tmp']
-		},
-
-		// Configuration to be run (and then tested).
-		kapocs: {
-			default_options: {},
-			custom_options: {
-				options: {
-					buildName: 'build2/',
-					srcName: 'src2/',
-					tmpName: 'tmp2/'
+			clean: {
+				tests: ['tmp']
+			},
+			kapocs: {
+				default_options: {},
+				custom_options: {
+					options: {
+						buildName: 'build2/',
+						srcName: 'src2/',
+						tmpName: 'tmp2/'
+					}
+				}
+			},
+			nodeunit: {
+				tests: ['test/*_test.js']
+			},
+			typescript: {
+				tests: {
+					files: {'tmp/kapocs.js': ['src/kapocs/Main.ts']}
+				}
+			},
+			sas: {
+				update: {}
+			},
+			shell: {
+				update: {
+					command: [
+						'bower update',
+						'bower prune',
+						'bower install'
+					].join('&&')
 				}
 			}
-		},
+		});
 
-		// Unit tests.
-		nodeunit: {
-			tests: ['test/*_test.js']
-		}
-
-	});
-
-	// Actually load this plugin's task(s).
 	grunt.loadTasks('tasks');
 
-	// These plugins provide necessary tasks.
-	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-sas');
+	grunt.loadNpmTasks('grunt-typescript');
+	
+	grunt.registerTask('update', ['shell:update','sas:update']);
+	grunt.registerTask('compile', ['clean:tests','typescript:tests']);
 
-	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
-	// plugin's task(s), then test the result.
 	grunt.registerTask('test', ['clean', 'kapocs', 'nodeunit']);
 
-	// By default, lint and run all tests.
-	grunt.registerTask('default', ['jshint', 'test']);
+	grunt.registerTask('default', ['test']);
 
 };

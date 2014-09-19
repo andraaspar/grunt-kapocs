@@ -1,7 +1,7 @@
 {
   "name": "grunt-kapocs",
   "description": "Appends a hash to asset file names, and injects file names into templates.",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "homepage": "https://github.com/andraaspar/grunt-kapocs",
   "author": {
     "name": "András Parditka",
@@ -27,10 +27,13 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "^0.9.2",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt": "~0.4.4"
+    "grunt": "~0.4.4",
+    "grunt-shell": "^1.1.1",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-sas": "^1.0.3",
+    "grunt-typescript": "^0.3.8"
   },
   "peerDependencies": {
     "grunt-contrib-copy": "^0.5.0",

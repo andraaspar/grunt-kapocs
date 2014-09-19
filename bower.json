@@ -1,0 +1,18 @@
+{
+	"name": "grunt-kapocs",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"bower_components",
+		"build",
+		"lib",
+		"node_modules",
+		"test",
+		"Gruntfile.js",
+		"package.json"
+	],
+	"dependencies": {
+		"illa": "andraaspar/illa#v2.1",
+		"erek": "andraaspar/erek#v1"
+	}
+}
