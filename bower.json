@@ -13,6 +13,6 @@
 	],
 	"dependencies": {
 		"illa": "andraaspar/illa#v2.1",
-		"erek": "andraaspar/erek#v1"
+		"grunt-d-ts": "andraaspar/grunt-d-ts#v1"
 	}
 }

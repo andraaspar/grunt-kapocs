@@ -1,10 +1,10 @@
+bower_components
 node_modules
 npm-debug.log
-tmp
-/build
-/build2
-/tmp2
+/test/build
+/test/build2
+/test/tmp
+/test/tmp2
 /.project
 /.settings
-/bower_components
 /lib
