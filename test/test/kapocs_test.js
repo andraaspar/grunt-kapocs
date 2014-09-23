@@ -30,67 +30,34 @@ exports.kapocs = {
 	default_options: function(test) {
 		test.expect(7);
 		
-		var actual = grunt.file.read('build/template1.txt');
+		var actual = grunt.file.read('build/test1/template1.txt');
 		var expected = grunt.file.read('test/expected1/template1.txt');
 		test.equal(actual, expected, 'Test 1');
 		
-		actual = grunt.file.read('build/dropin1.txt');
-		expected = grunt.file.read('test/expected1/dropin1.txt');
+		actual = grunt.file.read('build/test1/asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt');
+		expected = grunt.file.read('test/expected1/asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt');
 		test.equal(actual, expected, 'Test 2');
 		
-		actual = grunt.file.read('build/asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt');
-		expected = grunt.file.read('test/expected1/asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt');
+		actual = grunt.file.read('build/test1/asset_template1.d4803defed3c558ad5b744d05fa41f87.txt');
+		expected = grunt.file.read('test/expected1/asset_template1.d4803defed3c558ad5b744d05fa41f87.txt');
 		test.equal(actual, expected, 'Test 3');
 		
-		actual = grunt.file.read('build/asset_template1.4cfd644631fbe7a0d608cfbf8f087f94.txt');
-		expected = grunt.file.read('test/expected1/asset_template1.4cfd644631fbe7a0d608cfbf8f087f94.txt');
+		actual = grunt.file.read('build/test1/assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt');
+		expected = grunt.file.read('test/expected1/assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt');
 		test.equal(actual, expected, 'Test 4');
 		
-		actual = grunt.file.read('build/assets/dropin2.txt');
-		expected = grunt.file.read('test/expected1/assets/dropin2.txt');
+		actual = grunt.file.read('build/test1/assets/asset_template2.08aac10df99633734b5f2f9d3a3f18e7.txt');
+		expected = grunt.file.read('test/expected1/assets/asset_template2.08aac10df99633734b5f2f9d3a3f18e7.txt');
 		test.equal(actual, expected, 'Test 5');
 		
-		actual = grunt.file.read('build/assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt');
-		expected = grunt.file.read('test/expected1/assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt');
+		actual = grunt.file.read('build/test1/template2.txt');
+		expected = grunt.file.read('test/expected1/template2.txt');
 		test.equal(actual, expected, 'Test 6');
 		
-		actual = grunt.file.read('build/assets/asset_template2.f6cbfbefa15d962f1a1268e0d60a91b4.txt');
-		expected = grunt.file.read('test/expected1/assets/asset_template2.f6cbfbefa15d962f1a1268e0d60a91b4.txt');
+		actual = grunt.file.read('build/test1/assets/asset1.1357731058854aa0f4dc37178d4928fd.txt');
+		expected = grunt.file.read('test/expected1/assets/asset1.1357731058854aa0f4dc37178d4928fd.txt');
 		test.equal(actual, expected, 'Test 7');
 		
-		test.done();
-	},
-	custom_options: function(test) {
-		test.expect(7);
-		
-		var actual = grunt.file.read('build2/template1.txt');
-		var expected = grunt.file.read('test/expected1/template1.txt');
-		test.equal(actual, expected, 'Test 1');
-		
-		actual = grunt.file.read('build2/dropin1.txt');
-		expected = grunt.file.read('test/expected1/dropin1.txt');
-		test.equal(actual, expected, 'Test 2');
-		
-		actual = grunt.file.read('build2/asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt');
-		expected = grunt.file.read('test/expected1/asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt');
-		test.equal(actual, expected, 'Test 3');
-		
-		actual = grunt.file.read('build2/asset_template1.4cfd644631fbe7a0d608cfbf8f087f94.txt');
-		expected = grunt.file.read('test/expected1/asset_template1.4cfd644631fbe7a0d608cfbf8f087f94.txt');
-		test.equal(actual, expected, 'Test 4');
-		
-		actual = grunt.file.read('build2/assets/dropin2.txt');
-		expected = grunt.file.read('test/expected1/assets/dropin2.txt');
-		test.equal(actual, expected, 'Test 5');
-		
-		actual = grunt.file.read('build2/assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt');
-		expected = grunt.file.read('test/expected1/assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt');
-		test.equal(actual, expected, 'Test 6');
-
-		actual = grunt.file.read('build2/assets/asset_template2.f6cbfbefa15d962f1a1268e0d60a91b4.txt');
-		expected = grunt.file.read('test/expected1/assets/asset_template2.f6cbfbefa15d962f1a1268e0d60a91b4.txt');
-		test.equal(actual, expected, 'Test 7');
-
 		test.done();
 	}
 };

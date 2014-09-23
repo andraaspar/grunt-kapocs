@@ -4,99 +4,46 @@
 
 /// <reference path='../node.d.ts'/>
 
+/// <reference path='Task.ts'/>
+
+illa.GLOBAL.path = require('path');
+illa.GLOBAL.fs = require('fs');
+illa.GLOBAL.crypto = require('crypto');
+
+module kapocs {
+	export class Main {
+		
+		static TASK_NAME = 'kapocs';
+		static TASK_DESCRIPTION = 'Appends a hash to asset file names, and injects file names into templates.';
+		
+		private static instance = new Main();
+		
+		private grunt: grunt.IGrunt;
+		private tasks: Task[] = [];
+		
+		constructor() {
+			
+		}
+		
+		init(grunt: grunt.IGrunt): void {
+			this.grunt = grunt;
+			
+			this.grunt.loadNpmTasks('grunt-contrib-clean');
+			this.grunt.loadNpmTasks('grunt-contrib-copy');
+			
+			this.grunt.registerMultiTask(Main.TASK_NAME, Main.TASK_DESCRIPTION, illa.bind(this.doTask, this));
+		}
+		
+		doTask(): void {
+			var task = new Task(this.grunt);
+			this.tasks.push(task);
+			task.execute();
+		}
+		
+		static getInstance() {return this.instance}
+	}
+}
+
 module.exports = function(grunt: grunt.IGrunt) {
-
-	grunt.registerMultiTask('kapocs', 'Appends a hash to asset file names, and injects file names into templates.', function() {
-		
-		grunt.loadNpmTasks('grunt-contrib-clean');
-		grunt.loadNpmTasks('grunt-contrib-copy');
-		
-		// Merge task-specific and/or target-specific options with these defaults.
-		var options = this.options({
-			buildName: 'build/',
-			srcName: 'src/',
-			tmpName: 'tmp/',
-			cleanBuild: true,
-			cleanTmp: true
-		});
-		
-		var templateMap = {};
-		
-		function appendHash(dest: string, srcName: string, options: grunt.IFileExpandOptions) {
-			
-			var path = require('path');
-			
-			var fullSrcName = grunt.template.process(options.cwd + srcName);
-			
-			if (grunt.file.isFile(fullSrcName)) {
-				var fs = require('fs');
-				var crypto = require('crypto');
-				
-				var md5 = crypto.createHash('md5');
-				md5.update(fs.readFileSync(fullSrcName));
-				var md5Hash = md5.digest('hex');
-				
-				var dstName = srcName.replace(/(\.[^.]*)$/, '.' + md5Hash + '$1');
-				
-				templateMap['{{' + path.basename(srcName) + '}}'] = path.basename(dstName);
-				
-				srcName = dstName;
-			}
-
-			return path.join(dest, srcName);
-		}
-		
-		var cleanFiles = [];
-		if (options.cleanBuild) {
-			cleanFiles.push(options.buildName);
-		}
-		if (options.cleanTmp) {
-			cleanFiles.push(options.tmpName);
-		}
-		
-		var copyConfig = {
-			kapocs_asset: {
-				files: [
-					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
-					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_asset/', src: ['**/*'], dest: options.buildName, rename: appendHash},
-					{expand: true, dot: true, cwd: options.srcName + 'kapocs_asset_template/', src: ['**/*'], dest: options.tmpName + 'kapocs_template/', rename: appendHash},
-					{expand: true, dot: true, cwd: options.srcName + 'kapocs_asset/', src: ['**/*'], dest: options.buildName, rename: appendHash}
-				]
-			},
-			kapocs_template: {
-				options: {
-					process: function(content, srcpath) {
-						for (var i in templateMap) {
-							if (templateMap.hasOwnProperty(i)) {
-								content = content.replace(new RegExp(i, 'g'), templateMap[i]);
-							}
-						}
-						return content;
-					}
-				},
-				files: [
-					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_template/', src: ['**/*'], dest: options.buildName},
-					{expand: true, dot: true, cwd: options.srcName + 'kapocs_template/', src: ['**/*'], dest: options.buildName}
-				]
-			},
-			kapocs_dropin: {
-				files: [
-					{expand: true, dot: true, cwd: options.tmpName + 'kapocs_dropin/', src: ['**/*'], dest: options.buildName},
-					{expand: true, dot: true, cwd: options.srcName + 'kapocs_dropin/', src: ['**/*'], dest: options.buildName}
-				]
-			}
-		};
-		
-		grunt.config.merge({
-			clean: {
-				kapocs: cleanFiles
-			}
-		});
-		grunt.config.merge({
-			copy: copyConfig
-		});
-		
-		grunt.task.run(['clean:kapocs', 'copy:kapocs_dropin', 'copy:kapocs_asset', 'copy:kapocs_template']);
-	});
-
+	kapocs.Main.getInstance().init(grunt);
 };

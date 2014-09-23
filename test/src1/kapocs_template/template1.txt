@@ -1,0 +1,13 @@
+Absolute paths:
+
+asset1.txt: {{src1/kapocs_asset/asset1.txt}}
+asset2.txt: assets/{{src1/kapocs_asset/assets/asset2.txt}}
+asset_template1.txt: {{src1/kapocs_asset_template/asset_template1.txt}}
+asset_template2.txt: assets/{{src1/kapocs_asset_template/assets/asset_template2.txt}}
+
+File names only:
+
+asset1.txt: {{asset1.txt}} // This is ambiguous, and will throw an error
+asset2.txt: assets/{{asset2.txt}}
+asset_template1.txt: {{asset_template1.txt}}
+asset_template2.txt: assets/{{asset_template2.txt}}

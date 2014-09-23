@@ -1,1 +1,0 @@
-{{asset_template1.txt}}

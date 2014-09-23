@@ -1,0 +1,1 @@
+{{src1/kapocs_asset_template/asset_template1.txt}}
