@@ -1,0 +1,13 @@
+Absolute paths:
+
+asset1.txt: asset1.03f3a5cfb2574990393f7b3c1cf5a68d.txt
+asset2.txt: assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt
+asset_template1.txt: asset_template1.d4803defed3c558ad5b744d05fa41f87.txt
+asset_template2.txt: assets/asset_template2.08aac10df99633734b5f2f9d3a3f18e7.txt
+
+File names only:
+
+asset1.txt: {{asset1.txt}} // This is ambiguous, and will throw an error
+asset2.txt: assets/asset2.25699a320a6c5a69b42d2ab23f22915e.txt
+asset_template1.txt: asset_template1.d4803defed3c558ad5b744d05fa41f87.txt
+asset_template2.txt: assets/asset_template2.08aac10df99633734b5f2f9d3a3f18e7.txt
