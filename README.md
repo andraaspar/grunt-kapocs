@@ -67,39 +67,24 @@ This will:
 
 ### referencePrefix
 
- | 
--|-
-Type: | `string`
-Default: | `'{{'`
+Type: `string`
+
+Default: `'{{'`
 
 The prefix for references.
 
 ### referenceSuffix
 
-   |   
----|---
-Type: | `string`
-Default: | `'}}'`
+Type: `string`
+
+Default: `'}}'`
 
 The suffix for references.
 
 ### temporaryFolder
 
-<table>
-	<tr>
-		<td>
-			Type:
-		</td>
-		<td>
-			`string`
-		</td>
-		<td>
-			Default:
-		</td>
-		<td>
-			`'tmp'`
-		</td>
-	</tr>
-</table>
+Type: `string`
+
+Default: `'tmp'`
 
 The temporary folder, where intermediate files may be placed.
