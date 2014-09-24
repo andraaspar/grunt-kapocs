@@ -1,7 +1,7 @@
 {
   "name": "grunt-kapocs",
   "description": "Appends a hash to asset file names, and injects file names into templates.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/andraaspar/grunt-kapocs",
   "author": {
     "name": "András Parditka",
@@ -34,6 +34,9 @@
     "grunt": "^0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "cache busting",
+    "md5",
+    "hash"
   ]
 }
