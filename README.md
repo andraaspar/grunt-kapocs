@@ -67,6 +67,7 @@ This will:
 
 ### referencePrefix
 
+ | 
 -|-
 Type: | `string`
 Default: | `'{{'`
@@ -75,6 +76,7 @@ The prefix for references.
 
 ### referenceSuffix
 
+   |   
 ---|---
 Type: | `string`
 Default: | `'}}'`
@@ -85,8 +87,18 @@ The suffix for references.
 
 <table>
 	<tr>
-		<td>Type:</td><td>`string`</td>
-		<td>Default:</td><td>`'tmp'`</td>
+		<td>
+			Type:
+		</td>
+		<td>
+			`string`
+		</td>
+		<td>
+			Default:
+		</td>
+		<td>
+			`'tmp'`
+		</td>
 	</tr>
 </table>
 
