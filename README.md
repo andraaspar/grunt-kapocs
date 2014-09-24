@@ -14,9 +14,9 @@ project_folder
 |- build
 |- src
 |  |- assets
-|     |- <Files that should be renamed, like images or videos>
+|  |  |- <Files that should be renamed, like images or videos>
 |  |- asset_templates
-|     |- <Files that should be renamed, but they also refer to other assets, like CSS or JS>
+|  |  |- <Files that should be renamed, but they also refer to other assets, like CSS or JS>
 |  |- templates
 |     |- <Files that refer to assets, but should NOT be renamed, like HTML>
 |- Gruntfile.js
@@ -65,14 +65,23 @@ This will:
 
 ## Options
 
-### referencePrefix = '{{'
+### referencePrefix
+
+Type: | `string`
+Default: | `'{{'`
 
 The prefix for references.
 
-### referenceSuffix = '}}'
+### referenceSuffix
+
+Type: | `string`
+Default: | `'}}'`
 
 The suffix for references.
 
-### temporaryFolder = 'tmp'
+### temporaryFolder
+
+Type: | `string`
+Default: | `'tmp'`
 
 The temporary folder, where intermediate files may be placed.
