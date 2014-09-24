@@ -46,7 +46,7 @@ kapocs: {
 			cwd: 'src/templates',
 			dot: true,
 			src: ['**'],
-			dest: 'build
+			dest: 'build'
 		}]
 	}
 }
