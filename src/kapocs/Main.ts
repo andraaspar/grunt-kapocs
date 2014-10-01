@@ -2,7 +2,7 @@
 
 /// <reference path='../../lib/grunt/IGrunt.ts'/>
 
-/// <reference path='../node.d.ts'/>
+/// <reference path='../../lib/node.d.ts'/>
 
 /// <reference path='Task.ts'/>
 
