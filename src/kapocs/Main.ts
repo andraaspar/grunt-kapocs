@@ -27,10 +27,6 @@ module kapocs {
 		
 		init(grunt: grunt.IGrunt): void {
 			this.grunt = grunt;
-			
-			this.grunt.loadNpmTasks('grunt-contrib-clean');
-			this.grunt.loadNpmTasks('grunt-contrib-copy');
-			
 			this.grunt.registerMultiTask(Main.TASK_NAME, Main.TASK_DESCRIPTION, illa.bind(this.doTask, this));
 		}
 		
