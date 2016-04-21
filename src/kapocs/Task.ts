@@ -102,7 +102,7 @@ module kapocs {
 				} else if (this.grunt.file.isFile(template.src[0])) {
 					this.grunt.file.copy(template.src[0], template.dest, {
 						encoding: template.orig.encoding,
-						process: <grunt.IFileCopyOptionsProcessFunction>illa.partial(this.expandPlaceholders, this, template)
+						process: illa.bind(this.expandPlaceholders, this, template)
 					});
 				} else {
 					this.grunt.log.writeln('Invalid src, ignoring: ' + template.src[0]);
@@ -148,7 +148,7 @@ module kapocs {
 				contents = otherProcessResult;
 			}
 			var regExpString = illa.StringUtil.escapeRegExp(this.options.referencePrefix) + '(.*?)' + illa.StringUtil.escapeRegExp(this.options.referenceSuffix);
-			contents = contents.replace(new RegExp(regExpString, 'g'), <any>illa.partial(this.expandPlaceholdersInternal, this, template));
+			contents = contents.replace(new RegExp(regExpString, 'g'), illa.bind(this.expandPlaceholdersInternal, this, template));
 			return contents;
 		}
 

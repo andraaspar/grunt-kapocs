@@ -1,3 +1,5 @@
+/// <reference path='../../lib/lib.core.d.ts'/>
+
 /// <reference path='../../lib/illa/_module.ts'/>
 
 /// <reference path='../../lib/grunt/IGrunt.ts'/>

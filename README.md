@@ -194,7 +194,8 @@ You may want to clean this folder using the `grunt-contrib-clean` plugin after r
 ### Running tests
 
 1. Enter the `test` folder.
-2. Issue `grunt --force`. The `--force` option is necessary as during testing the task throws some intentional errors.
+2. Issue `npm install` to install the required NPM packages.
+3. Issue `grunt --force`. The `--force` option is necessary as during testing the task throws some intentional errors.
 
 ## Coding style
 

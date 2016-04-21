@@ -12,7 +12,7 @@
     "package.json"
   ],
   "dependencies": {
-    "illa": "andraaspar/illa#v2.1",
+    "illa": "andraaspar/illa#v2.5",
     "grunt-d-ts": "andraaspar/grunt-d-ts#v1",
     "node-d-ts": "andraaspar/node-d-ts#v1"
   }

@@ -3,33 +3,76 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
-			typescript: {
-				compile: {
-					files: {'tasks/kapocs.js': ['src/kapocs/Main.ts']}
+			clean: {
+				compile: [
+					'tasks'
+				],
+				update: [
+					'lib'
+				]
+			},
+			copy: {
+				update: {
+					files:[
+						{
+							dot: true,
+							expand: true,
+							cwd: 'bower_components/illa/src',
+							src: ['**'],
+							dest: 'lib'
+						},
+						{
+							dot: true,
+							expand: true,
+							cwd: 'bower_components/grunt-d-ts/src',
+							src: ['**'],
+							dest: 'lib'
+						},
+						{
+							dot: true,
+							expand: true,
+							cwd: 'bower_components/node-d-ts/src',
+							src: ['**'],
+							dest: 'lib'
+						},
+						{
+							dot: true,
+							expand: true,
+							cwd: 'node_modules/typescript/lib',
+							src: ['lib.core.d.ts'],
+							dest: 'lib'
+						}
+					]
 				}
 			},
-			sas: {
-				update: {}
-			},
 			shell: {
+				compileTs: {
+					command: '"node_modules/.bin/tsc" "src/kapocs/Main.ts" --noLib --outFile "tasks/kapocs.js"'
+				},
 				update: {
 					command: [
-						'bower update',
 						'bower prune',
-						'bower install'
+						'bower install',
+						'bower update'
 					].join('&&')
 				}
 			}
 		});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-shell');
-	grunt.loadNpmTasks('grunt-sas');
-	grunt.loadNpmTasks('grunt-typescript');
 	
-	grunt.registerTask('update', ['shell:update','sas:update']);
-	grunt.registerTask('compile', ['typescript:compile']);
-
-	grunt.registerTask('default', ['compile']);
-
+	grunt.registerTask('update', [
+		'shell:update',
+		'clean:update',
+		'copy:update'
+	]);
+	grunt.registerTask('compile', [
+		'clean:compile',
+		'shell:compileTs'
+	]);
+	grunt.registerTask('default', [
+		'compile'
+	]);
 };
